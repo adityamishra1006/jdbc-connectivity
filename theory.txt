@@ -1,0 +1,43 @@
+JDBC : JDBC stands for Java Data Base Connectivity
+
+We will be having a database in our system to store data.
+If we have database and we have a java code. 
+
+
+We have to connect the frontend application with the backend database, for that we require a connectivity. And for that connectivity we use JDBC.
+JDBC is a Java API that allows Java programs to access and manipulate data stored in relational databases.
+JDBC is a standard API for connecting to relational databases from Java programs.
+
+
+We have to follow some steps to connect java application to database.
+1. Import the package
+    We will use this package (java.sql.*)
+2. Load and register the driver
+    a. Load the driver : for MySQL the driver is (com.mysql.jdbc.Driver)
+            We have to download a .jar file of MySQL Connector
+    b. Register the driver : class forName("com.mysql.jdbc.Driver)
+3. Establish the connection
+    We have to instantiate an interface called "Connection".
+4. Create a statement
+    a. Normal statement
+    b. Collable statement
+5. Execute the query
+6. Process results
+7. Close the connection 
+
+
+how to write in code?
+
+import java.sql.*;
+
+main(){
+    class forName("com.mysql.jdbc.Driver);
+    Connection con = DriverManager.getConnection("URL", "UserName", "Password");
+    Statement st = con.createStatement();
+    ResultSet rs = st.executeQuery("SELECT * FROM table_name");
+    while(rs.next()){
+        System.out.println(rs.getInt(1) +" "+rs.getString(2));
+    }
+    st.close();
+    con.close();
+}
